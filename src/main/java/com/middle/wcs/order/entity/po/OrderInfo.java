@@ -86,4 +86,9 @@ public class OrderInfo {
      * 作废标识，0未作废，1作废
      */
     private String invalidFlag;
+
+    /**
+     * 规格
+     */
+    private String spec;
 }
