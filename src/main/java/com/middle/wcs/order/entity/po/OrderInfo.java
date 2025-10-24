@@ -53,22 +53,22 @@ public class OrderInfo {
     private String productName;
 
     /**
-    * 指定预热房（A1-G1）
+    * 指定预热房（A-G）
     */
     private String isPrint1;
 
     /**
-    * 指定灭菌柜
+    * 指定灭菌柜（A-G）
     */
     private String isPrint2;
 
     /**
-    * 指定输出，0：不解析 1、解析库 2、立体库
+    * 指定输出，0：一楼 1、解析库 2、立体库
     */
     private String isPrint3;
 
     /**
-    * 单批次16个托盘码符号间隔
+    * 单批次16个托盘码逗号间隔
     */
     private String qrCode;
 
@@ -91,4 +91,9 @@ public class OrderInfo {
      * 规格
      */
     private String spec;
+
+    /**
+     * 是否手动添加的订单,1：手动 其他：MSE
+     */
+    private String isManual;
 }
