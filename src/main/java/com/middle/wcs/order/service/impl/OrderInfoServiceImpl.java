@@ -84,4 +84,10 @@ public class OrderInfoServiceImpl implements OrderInfoService {
         }
         return null;
     }
+
+    @Override
+    public List<OrderInfo> selectByList(OrderInfo dto) {
+        QueryWrapper<OrderInfo> wrapper= new QueryWrapper<>(dto);
+        return this.orderInfoMapper.selectList(wrapper);
+    }
 }

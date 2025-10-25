@@ -74,4 +74,15 @@ public class OrderInfoController {
     public ResponseResult<PageInfo<OrderInfo>> queryHistoryOrderList(@RequestBody OrderInfoPageDTO dto) {
         return ResponseResult.success(this.orderInfoService.queryHistoryOrderList(dto));
     }
+
+    /**
+     * 入参查询
+     * @param dto 入参
+     * @return 出参
+     */
+    @ApiOperation("入参查询")
+    @PostMapping("/selectByList")
+    public ResponseResult<List<OrderInfo>> selectByList(@RequestBody OrderInfo dto) {
+        return ResponseResult.success(this.orderInfoService.selectByList(dto));
+    }
 }
