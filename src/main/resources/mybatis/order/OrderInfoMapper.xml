@@ -15,9 +15,19 @@
         <result property="qrCode" column="qr_code" jdbcType="VARCHAR"/>
         <result property="inPut" column="in_put" jdbcType="VARCHAR"/>
         <result property="orderStatus" column="order_status" jdbcType="VARCHAR"/>
+        <result property="invalidFlag" column="invalid_flag" jdbcType="VARCHAR"/>
+        <result property="spec" column="spec" jdbcType="VARCHAR"/>
+        <result property="isManual" column="is_manual" jdbcType="VARCHAR"/>
+        <result property="createrName" column="creater_name" jdbcType="VARCHAR"/>
+        <result property="createrCode" column="creater_code" jdbcType="VARCHAR"/>
+        <result property="executorName" column="executor_name" jdbcType="VARCHAR"/>
+        <result property="executorCode" column="executor_code" jdbcType="VARCHAR"/>
+        <result property="finisherName" column="finisher_name" jdbcType="VARCHAR"/>
+        <result property="finisherCode" column="finisher_code" jdbcType="VARCHAR"/>
+        <result property="finishTime" column="finish_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
-    <select id="queryHistoryOrderList" resultType="com.middle.wcs.order.entity.po.OrderInfo">
+    <select id="queryHistoryOrderList" resultMap="OrderInfoMap">
         SELECT
             id,
             order_id,
@@ -31,12 +41,27 @@
             in_put,
             insert_time,
             order_status,
-            invalid_flag
+            invalid_flag,
+            spec,
+            is_manual,
+            creater_name,
+            creater_code,
+            executor_name,
+            executor_code,
+            finisher_name,
+            finisher_code,
+            finish_time
         FROM
             dbo.order_info
         WHERE
             invalid_flag = '0' -- 仅查询未标记为无效的数据
           AND order_status = '3' -- 查询特定状态的数据
+          <if test="orderId != null and orderId != ''">
+            AND order_id = #{orderId}
+          </if>
+          <if test="executorName != null and executorName != ''">
+            AND executor_name LIKE CONCAT('%', #{executorName}, '%')
+          </if>
         ORDER BY
             insert_time DESC; -- 按插入时间倒序排序
     </select>

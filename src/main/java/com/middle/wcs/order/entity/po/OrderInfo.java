@@ -96,4 +96,34 @@ public class OrderInfo {
      * 是否手动添加的订单,1：手动 其他：MSE
      */
     private String isManual;
+
+    /**
+     * 添加用户姓名
+     */
+    private String createrName;
+    /**
+     * 添加订单的用户code
+     */
+    private String createrCode;
+    /**
+     * 订单执行人
+     */
+    private String executorName;
+    /**
+     * 订单执行人code
+     */
+    private String executorCode;
+    /**
+     * 订单完成人姓名
+     */
+    private String finisherName;
+    /**
+     * 订单完成人code
+     */
+    private String finisherCode;
+
+    /**
+     * 订单完成时间
+     */
+    private Date finishTime;
 }

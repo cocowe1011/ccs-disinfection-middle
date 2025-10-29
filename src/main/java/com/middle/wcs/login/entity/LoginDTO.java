@@ -12,13 +12,18 @@ import lombok.Data;
 public class LoginDTO {
 
     /**
-    * 用户登录code
-    */    
+     * 用户登录code
+     */
     private String userCode;
-                
+
     /**
-    * 用户密码
-    */    
+     * 用户密码
+     */
     private String userPassword;
-    
+
+    /**
+     * 用户角色
+     */
+    private String userRole;
+
 }

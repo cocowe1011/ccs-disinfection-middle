@@ -23,4 +23,14 @@ public class OrderInfoPageDTO {
      */
     @NotNull(message = "每页大小")
     private Integer pageSize;
+
+    /**
+     * 订单号（模糊）
+     */
+    private String orderId;
+
+    /**
+     * 执行人姓名（模糊）
+     */
+    private String executorName;
 }
